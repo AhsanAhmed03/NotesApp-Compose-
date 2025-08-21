@@ -9,6 +9,7 @@ import com.compose.notes.application.feature_notes.domain.usecaase.AddNoteUseCas
 import com.compose.notes.application.feature_notes.domain.usecaase.DeleteNoteUseCase
 import com.compose.notes.application.feature_notes.domain.usecaase.GetNotesUseCase
 import com.compose.notes.application.feature_notes.domain.usecaase.NoteUseCases
+import com.compose.notes.application.feature_notes.presentation.notes.NotesViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 
@@ -34,8 +35,10 @@ val appModule = module{
     single {
         NoteUseCases(
             getNotesUseCase = get(),
-            addNoteUseCase = get (),
+            addNoteUseCase = get(),
             deleteNoteUseCase = get()
         )
     }
+
+    single { NotesViewModel(get()) }
 }
